@@ -1,0 +1,4 @@
+# Project exclude paths
+/clients/target/
+/EurekaServer/target/
+/FraudService/target/
