@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
+        <module name="apigw" />
         <module name="NotificationService" />
         <module name="clients" />
       </profile>
@@ -20,8 +21,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
         </processorPath>
-        <module name="FraudService" />
         <module name="CustomerService" />
+        <module name="FraudService" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

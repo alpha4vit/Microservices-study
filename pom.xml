@@ -16,6 +16,7 @@
         <module>EurekaServer</module>
         <module>clients</module>
         <module>NotificationService</module>
+        <module>apigw</module>
     </modules>
 
     <properties>
