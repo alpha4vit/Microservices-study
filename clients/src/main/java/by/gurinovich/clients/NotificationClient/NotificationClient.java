@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 
-@FeignClient("NOTIFICATIONSERVICE")
+@FeignClient(value = "NOTIFICATIONSERVICE")
 public interface NotificationClient {
 
-    @GetMapping
+    @GetMapping("api/v1/notifications")
     List<Notification> getAll();
 
-    @PostMapping
+    @PostMapping("api/v1/notifications")
     Notification create(@RequestBody Notification notification);
 
 }

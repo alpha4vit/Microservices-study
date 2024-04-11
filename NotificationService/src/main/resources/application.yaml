@@ -1,9 +1,18 @@
 spring:
   application:
     name: NotificationService
+  data:
+    mongodb:
+      authentication-database: admin
+      host: localhost
+      port: 27017
+      database: ms-notification
+      username: rootuser
+      password: rootpass
 server:
-  port:
-    8083
+  servlet:
+    context-path: /api/v1
+  port: 8083
 eureka:
   client:
     service-url:
