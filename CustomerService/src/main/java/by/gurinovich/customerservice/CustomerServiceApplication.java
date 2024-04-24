@@ -9,7 +9,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
         basePackages = "by.gurinovich.clients"
 )
 @EnableDiscoveryClient
-@SpringBootApplication
+@SpringBootApplication(
+        scanBasePackages = {
+                "by.gurinovich.customerservice",
+                "by.gurinovich.amqp"
+        }
+)
 public class CustomerServiceApplication {
 
     public static void main(String[] args) {

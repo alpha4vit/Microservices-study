@@ -33,10 +33,35 @@ services:
       - MONGO
     depends_on:
       - mongodb
-
+  rabbitmq:
+    image: rabbitmq:3.13.1-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  eureka-server:
+    image: alpha4vit/eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring
+  apigw:
+    image: alpha4vit/apigw:latest
+    container_name: apigw
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka-server
+    networks:
+      - spring
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
 networks:
   MONGO:
     name: MONGO
+  spring:
+    driver: bridge
 
 volumes:
   MONGO_DATA:

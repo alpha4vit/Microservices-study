@@ -1,4 +1,4 @@
-package by.gurinovich.clients.entity;
+package by.gurinovich.fraudservice.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

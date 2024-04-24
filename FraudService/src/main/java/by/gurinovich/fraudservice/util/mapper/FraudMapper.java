@@ -1,7 +1,7 @@
-package by.gurinovich.clients.util.mapper;
+package by.gurinovich.fraudservice.util.mapper;
 
 import by.gurinovich.clients.FraudClient.response.FraudDto;
-import by.gurinovich.clients.entity.Fraud;
+import by.gurinovich.fraudservice.entity.Fraud;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

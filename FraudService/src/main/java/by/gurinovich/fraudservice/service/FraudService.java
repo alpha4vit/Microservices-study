@@ -1,6 +1,6 @@
-package by.gurinovich.clients.service;
+package by.gurinovich.fraudservice.service;
 
-import by.gurinovich.clients.entity.Fraud;
+import by.gurinovich.fraudservice.entity.Fraud;
 
 import java.util.UUID;
 

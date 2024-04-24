@@ -8,7 +8,7 @@
     </parent>
 
     <groupId>by.gurinovich.fraudervice</groupId>
-    <artifactId>FraudService</artifactId>
+    <artifactId>fraud-service</artifactId>
     <packaging>jar</packaging>
 
     <name>FraudService</name>
@@ -56,7 +56,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>${spring.boot.maven.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -81,6 +81,19 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>build-docker-image</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
 

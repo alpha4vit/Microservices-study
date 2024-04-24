@@ -1,4 +1,4 @@
-package by.gurinovich.clients;
+package by.gurinovich.fraudservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

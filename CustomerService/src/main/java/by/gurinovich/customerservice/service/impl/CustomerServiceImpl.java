@@ -1,7 +1,7 @@
 package by.gurinovich.customerservice.service.impl;
 
+import by.gurinovich.amqp.RabbitMQMessageProducer;
 import by.gurinovich.clients.FraudClient.response.FraudDto;
-import by.gurinovich.clients.NotificationClient.NotificationClient;
 import by.gurinovich.clients.NotificationClient.response.Notification;
 import by.gurinovich.customerservice.client.FraudClient;
 import by.gurinovich.customerservice.entity.Customer;
@@ -17,13 +17,20 @@ import java.util.UUID;
 @Service
 public record CustomerServiceImpl(
         CustomerRepository customerRepository,
-        FraudClient fraudClient
+        FraudClient fraudClient,
+        RabbitMQMessageProducer rabbitMQMessageProducer
 ) implements CustomerService {
 
     @Override
     public Customer getById(UUID id) {
-        if (fraudClient.checkIsCustomerFraud(id))
+        if (fraudClient.checkIsCustomerFraud(id)) {
+            var notification = Notification.builder()
+                    .body(String.format("Customer with id = %s is fraudster", id))
+                    .issuer(this.getClass().getName())
+                    .build();
+            rabbitMQMessageProducer.publish(notification, "internal.exchange", "internal.notification.routing-key");
             log.info("Customer {} is fraudster!", id);
+        }
         return customerRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Customer with this id not found!"));
     }

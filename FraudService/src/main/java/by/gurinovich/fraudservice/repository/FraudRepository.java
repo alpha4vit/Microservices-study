@@ -1,6 +1,6 @@
-package by.gurinovich.clients.repository;
+package by.gurinovich.fraudservice.repository;
 
-import by.gurinovich.clients.entity.Fraud;
+import by.gurinovich.fraudservice.entity.Fraud;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
